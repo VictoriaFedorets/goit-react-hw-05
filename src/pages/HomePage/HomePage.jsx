@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import MovieList from "../../components/MovieList/MovieList";
-import fetchData from "../../themoviedb_api/themoviedb_api";
+import { getTopMovieDay } from "../../themoviedb_api/themoviedb_api";
 import { useEffect, useState } from "react";
 import LoadMore from "../../components/LoadMore/LoadMore";
 
@@ -20,15 +20,15 @@ export default function HomePage() {
   function resetPage() {
     setPage(1);
   }
-  const endPoint = "trending/movie/day";
+  // const endPoint = "trending/movie/day";
 
   useEffect(() => {
-    const getFilms = async () => {
+    const getTopFilms = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const data = await fetchData(page, "", endPoint);
+        const data = await getTopMovieDay();
 
         setSearchParams({ page: page });
         setListFilms([...data.results]); // Assuming 'results' contains the list of films
@@ -40,7 +40,7 @@ export default function HomePage() {
         setLoading(false);
       }
     };
-    getFilms();
+    getTopFilms();
   }, [page, setSearchParams]);
 
   return (

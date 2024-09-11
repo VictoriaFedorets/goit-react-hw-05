@@ -1,5 +1,4 @@
 import { FiSearch } from "react-icons/fi";
-
 import { useState } from "react";
 
 export default function SearchForm({ onSubmit }) {
@@ -22,19 +21,28 @@ export default function SearchForm({ onSubmit }) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="searchingFilms" className="sr-only">
+          Search for movies
+        </label>
         <input
           type="text"
+          id="searchingFilms"
           name="searchingFilms"
           autoComplete="off"
-          placeholder="Movies title"
+          placeholder="Enter movie title"
+          aria-describedby="searchError"
         />
-        <button type="submit">
+        <button type="submit" aria-label="Search">
           <FiSearch />
           Search
         </button>
       </form>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && (
+        <p id="searchError" style={{ color: "red" }}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }
