@@ -4,7 +4,7 @@ import ActorsCard from "../ActorsCard/ActorsCard";
 import { getMovieCast } from "../../themoviedb_api/themoviedb_api";
 
 export default function MovieCast() {
-  const [cast, setCast] = useState([]);
+  const [casts, setCasts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -15,30 +15,29 @@ export default function MovieCast() {
   // const location = useLocation();
   // console.log("cast location", location);
 
+  const getFilmCasts = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await getMovieCast(movieId);
+
+      setCasts(response.cast);
+      console.log(response.cast);
+    } catch (error) {
+      setError(
+        "It was not possible to obtain information about the actors. Please try again later."
+      );
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
     // console.log("Current location is", location);
     // console.log(movieId);
-
-    const getFilmCasts = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const response = await getMovieCast(movieId);
-
-        setCast(response.cast);
-        console.log(response.cast);
-      } catch (error) {
-        setError(
-          "It was not possible to obtain information about the actors. Please try again later."
-        );
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     getFilmCasts();
+    console.log(casts);
   }, [movieId]);
 
   return (
@@ -47,8 +46,8 @@ export default function MovieCast() {
       {loading && <div>Loading...</div>}
       {error && <div>Oops.. It is error..</div>}
 
-      {cast.length > 0 ? (
-        <ActorsCard cast={cast} />
+      {casts.length > 0 ? (
+        <ActorsCard cast={casts} key={casts.id} />
       ) : (
         <h2>Sorry, there is no information about actors</h2>
       )}

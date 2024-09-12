@@ -1,0 +1,19 @@
+.goBack {
+  font-size: 25px;
+}
+
+.castReviews {
+  display: flex;
+  gap: 20px;
+  font-size: 25px;
+}
+
+.castReviewsItems {
+  border: 1px solid black;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.castReviewsItems:hover {
+  border-color: orangered;
+}

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link, Outlet } from "react-router-dom";
 import { getMovieDetails } from "../../themoviedb_api/themoviedb_api";
 import CurrentFilm from "../../components/CurrentFilm/CurrentFilm";
+import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -42,20 +43,24 @@ export default function MovieDetailsPage() {
   }, [movieId]);
 
   return (
-    <div>
-      <Link to={backLinkHref.current}>Go back</Link>
+    <div className={css.movieDetails}>
+      <div className={css.goBack}>
+        <Link to={backLinkHref.current}>Go back</Link>
+      </div>
+
       {loading && <div>Loading</div>}
       {error && <div>Error</div>}
       {currentFilm && <CurrentFilm currentFilm={currentFilm} />}
 
-      <ul>
-        <li>
+      <ul className={css.castReviews}>
+        <li className={css.castReviewsItems}>
           <Link to="cast">Cast</Link>
         </li>
-        <li>
+        <li className={css.castReviewsItems}>
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
+      <Outlet />
     </div>
   );
 }

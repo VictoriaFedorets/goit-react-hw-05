@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import getMovieReviews from "../../themoviedb_api/themoviedb_api";
-import ReviewsList from "../ReviewsList/ReviewsList";
+import { getMovieReviews } from "../../themoviedb_api/themoviedb_api";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
@@ -30,12 +30,12 @@ export default function MovieReviews() {
   }, [movieId]);
 
   return (
-    <>
+    <div className={css.reviews}>
       <h2>Movie reviews</h2>
       {loading && <div>Loading reviews...</div>}
       {error && <div>This is Error</div>}
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css.reviewsList}>
           {reviews.map(({ id, content, author }) => {
             return (
               <li key={id}>
@@ -53,6 +53,6 @@ export default function MovieReviews() {
       ) : (
         <h3>Sorry, there are no reviews for this movie yet</h3>
       )}
-    </>
+    </div>
   );
 }

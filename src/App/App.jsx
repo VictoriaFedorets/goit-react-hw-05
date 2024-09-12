@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 // import { Navigate } from "react-router-dom";
 
 import Navigation from "../components/Navigation/Navigation";
+import css from "./App.module.css";
 const MovieCast = lazy(() => import("../components/MovieCast/MovieCast"));
 const MovieReviews = lazy(() =>
   import("../components/MovieReviews/MovieReviews")
@@ -22,7 +23,7 @@ const MovieDetailsPage = lazy(() =>
 
 export default function App() {
   return (
-    <div>
+    <div className={css.container}>
       <Navigation />
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>

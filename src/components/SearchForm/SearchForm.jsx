@@ -1,5 +1,6 @@
 import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
+import css from "./SearchForm.module.css";
 
 export default function SearchForm({ onSubmit }) {
   const [error, setError] = useState("");
@@ -19,12 +20,11 @@ export default function SearchForm({ onSubmit }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="searchingFilms" className="sr-only">
-          Search for movies
-        </label>
+    <div className={css.searchContainer}>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <label htmlFor="searchingFilms" />
         <input
+          className={css.input}
           type="text"
           id="searchingFilms"
           name="searchingFilms"
@@ -32,7 +32,7 @@ export default function SearchForm({ onSubmit }) {
           placeholder="Enter movie title"
           aria-describedby="searchError"
         />
-        <button type="submit" aria-label="Search">
+        <button className={css.btnSearch} type="submit" aria-label="Search">
           <FiSearch />
           Search
         </button>

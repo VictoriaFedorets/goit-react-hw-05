@@ -1,0 +1,11 @@
+.actorList {
+  width: 1250px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  font-size: 20px;
+}
+
+.actorImg {
+  width: 150px;
+}

@@ -1,3 +1,18 @@
+.navigation {
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+}
+
+.navigationItem {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+
+.navigationItem:hover {
+  border-color: orangered;
+}
 .link {
   text-decoration: none;
 }
