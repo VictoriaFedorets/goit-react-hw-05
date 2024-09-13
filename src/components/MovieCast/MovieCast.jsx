@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import ActorsCard from "../ActorsCard/ActorsCard";
 import { getMovieCast } from "../../themoviedb_api/themoviedb_api";
+import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
   const [casts, setCasts] = useState([]);
@@ -47,7 +48,11 @@ export default function MovieCast() {
       {error && <div>Oops.. It is error..</div>}
 
       {casts.length > 0 ? (
-        <ActorsCard cast={casts} key={casts.id} />
+        <ul className={css.actorList}>
+          {casts.map(cast => (
+            <ActorsCard cast={cast} key={cast.id} />
+          ))}
+        </ul>
       ) : (
         <h2>Sorry, there is no information about actors</h2>
       )}
