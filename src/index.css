@@ -1,25 +1,17 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  /* font-weight: 400; */
+  font-weight: 400;
+  font-size: 16px;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark; */
   color: rgb(255, 255, 255);
   background-color: #242424;
-  margin: 0 auto;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #ec553d;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #ec553d;
 }
 
 body {
@@ -30,18 +22,33 @@ body {
     rgba(46, 45, 43, 1) 100%
   );
   color: rgba(255, 255, 255, 0.921);
-  margin: 0;
-  display: flex;
+
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  place-items: center;
-  min-width: 320px;
+  place-items: center; */
+  /* min-width: 320px; */
   min-height: 100vh;
+}
+
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #ec553d;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ec553d;
 }
 
 h1 {
   color: rgb(0, 1, 0);
-  font-size: 45px;
 }
 
 h1,
@@ -68,8 +75,8 @@ a {
 
 img {
   display: block;
-  width: 500px;
-
+  /* width: 500px; */
+  max-width: 100%;
   height: auto;
 }
 

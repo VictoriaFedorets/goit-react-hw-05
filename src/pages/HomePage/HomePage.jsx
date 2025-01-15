@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { getTopMovieDay } from "../../themoviedb_api/themoviedb_api";
 import { useEffect, useState } from "react";
 import LoadMore from "../../components/LoadMore/LoadMore";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [listFilms, setListFilms] = useState([]);
@@ -44,7 +45,7 @@ export default function HomePage() {
   }, [page, setSearchParams]);
 
   return (
-    <div>
+    <div className={css.mainPart}>
       <h1>Trendings today:</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Oops... It is error....</p>}
