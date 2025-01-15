@@ -22,7 +22,6 @@ body {
     rgba(46, 45, 43, 1) 100%
   );
   color: rgba(255, 255, 255, 0.921);
-
   /* display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +31,7 @@ body {
 }
 
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -80,20 +79,11 @@ img {
   height: auto;
 }
 
-/* button {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
-} */
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  padding: 10px;
+  font-size: 15px;
   font-weight: 500;
   font-family: inherit;
   margin-right: 10px;
@@ -109,7 +99,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -120,4 +110,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

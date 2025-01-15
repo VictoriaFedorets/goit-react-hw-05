@@ -46,7 +46,7 @@ export default function HomePage() {
 
   return (
     <div className={css.mainPart}>
-      <h1>Trendings today:</h1>
+      <h1 className={css.title}>Trendings today:</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Oops... It is error....</p>}
       {listFilms.length > 0 && <MovieList listFilms={listFilms} />}

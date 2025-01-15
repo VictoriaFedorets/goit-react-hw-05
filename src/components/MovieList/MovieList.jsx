@@ -8,10 +8,11 @@ export default function MovieList({ listFilms }) {
   if (!Array.isArray(listFilms)) {
     return <p>Error: Expected listFilms to be an array.</p>;
   }
+
   return (
-    <ul>
+    <ul className={css.movieList}>
       {listFilms.map(film => (
-        <li className={css.movieList} key={film.id}>
+        <li className={css.movieItem} key={film.id}>
           <Link to={`/movies/${film.id}`} state={location}>
             {film.title}
           </Link>

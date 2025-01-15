@@ -71,7 +71,7 @@ export default function MoviesPage() {
 
   return (
     <div className={css.searchPage}>
-      <h3>Movies search page</h3>
+      <h3 className={css.title}>Movies search page</h3>
       <SearchForm onSubmit={handleSearchSubmit} />
       {loading && <div>Loading...</div>}
       {error && <div>{error}</div>}

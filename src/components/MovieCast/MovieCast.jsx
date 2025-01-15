@@ -42,8 +42,8 @@ export default function MovieCast() {
   }, [movieId]);
 
   return (
-    <div>
-      <h1>Movie casts:</h1>
+    <>
+      <h2>Movie casts:</h2>
       {loading && <div>Loading...</div>}
       {error && <div>Oops.. It is error..</div>}
 
@@ -56,6 +56,6 @@ export default function MovieCast() {
       ) : (
         <h2>Sorry, there is no information about actors</h2>
       )}
-    </div>
+    </>
   );
 }

@@ -40,11 +40,11 @@ export default function MovieReviews() {
             return (
               <li key={id}>
                 <p>
-                  <span>Name : </span>
+                  <span>Name: </span>
                   {author}
                 </p>
                 <p>
-                  <span>Review :</span> {content}
+                  <span>Review:</span> {content}
                 </p>
               </li>
             );
