@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   gap: 20px;
 }
 
@@ -41,5 +41,9 @@
 @media screen and (min-width: 1440px) {
   .img {
     width: 400px;
+  }
+
+  .currentFilm {
+    gap: 30px;
   }
 }

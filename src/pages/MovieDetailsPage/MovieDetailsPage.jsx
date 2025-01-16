@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParams, useLocation, Link, Outlet } from "react-router-dom";
 import { getMovieDetails } from "../../themoviedb_api/themoviedb_api";
 import CurrentFilm from "../../components/CurrentFilm/CurrentFilm";
+import { FiArrowLeft } from "react-icons/fi";
 import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
@@ -45,6 +46,7 @@ export default function MovieDetailsPage() {
   return (
     <div className={css.movieDetails}>
       <div className={css.goBack}>
+        <FiArrowLeft className={css.icon} />
         <Link to={backLinkHref.current}>Go back</Link>
       </div>
 

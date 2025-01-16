@@ -43,7 +43,7 @@ export default function MovieCast() {
 
   return (
     <>
-      <h2>Movie casts:</h2>
+      <h2 className={css.title}>Movie casts:</h2>
       {loading && <div>Loading...</div>}
       {error && <div>Oops.. It is error..</div>}
 

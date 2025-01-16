@@ -1,7 +1,13 @@
-.reviews {
-  padding-top: 20px;
+.reviews h2 {
+  margin: 20px 0;
 }
 
 .reviewsList {
   font-size: 20px;
+}
+
+.titleName {
+  font-size: 22px;
+  font-weight: 500;
+  color: rgb(153, 153, 153);
 }

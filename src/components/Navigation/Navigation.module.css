@@ -5,25 +5,23 @@
 }
 
 .navigationItem {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 8px 16px;
+  border: none;
   font-size: 20px;
 }
 
-.navigationItem:hover {
-  border-color: orangered;
-}
 .link {
-  color: rgb(243, 149, 77);
+  color: rgb(255, 255, 255);
 }
 
 .active {
-  border-color: orangered;
   color: orangered;
 }
 
 @media screen and (min-width: 768px) {
+  .navigation {
+    padding: 0 30px;
+  }
+
   .navigationItem {
     font-size: 22px;
   }

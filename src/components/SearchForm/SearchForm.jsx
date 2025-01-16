@@ -39,7 +39,7 @@ export default function SearchForm({ onSubmit }) {
       </form>
 
       {error && (
-        <p id="searchError" style={{ color: "red" }}>
+        <p className={css.error} id="searchError" style={{ color: "red" }}>
           {error}
         </p>
       )}

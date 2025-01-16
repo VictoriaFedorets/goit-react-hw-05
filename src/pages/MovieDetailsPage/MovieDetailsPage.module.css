@@ -3,20 +3,32 @@
 }
 
 .goBack {
-  padding: 10px 0;
-  font-size: 25px;
+  display: flex;
+  align-items: center;
+  width: 130px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
 }
 
 .castReviews {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  font-size: 25px;
+  gap: 10px;
+  font-size: 22px;
 }
 
 .castReviewsItems {
   border: 1px solid black;
-  padding: 8px 16px;
+  padding: 8px 10px;
   border-radius: 10px;
 }
 
@@ -31,4 +43,12 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .castReviews {
+    gap: 20px;
+    font-size: 24px;
+  }
+
+  .castReviewsItems {
+    padding: 8px 16px;
+  }
 }

@@ -15,6 +15,7 @@ export default function HomePage() {
 
   const pageOnParams = Number(searchParams.get("page"));
   const [page, setPage] = useState(() => (pageOnParams ? pageOnParams : 1));
+
   function changePage(page, change) {
     setPage(page + change);
   }
@@ -46,7 +47,7 @@ export default function HomePage() {
 
   return (
     <div className={css.mainPart}>
-      <h1 className={css.title}>Trendings today:</h1>
+      <h1 className={css.title}>Trendings today</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Oops... It is error....</p>}
       {listFilms.length > 0 && <MovieList listFilms={listFilms} />}

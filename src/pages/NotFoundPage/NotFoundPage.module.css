@@ -1,0 +1,47 @@
+.wrapper {
+  width: auto;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.title {
+  font-size: 22px;
+}
+
+.linkHome {
+  color: coral;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 35px;
+  }
+
+  .text {
+    font-size: 25px;
+  }
+
+  .linkHome {
+    font-size: 30px;
+    color: coral;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 55px;
+  }
+
+  .text {
+    font-size: 35px;
+  }
+
+  .linkHome {
+    font-size: 35px;
+    font-weight: 600px;
+  }
+}

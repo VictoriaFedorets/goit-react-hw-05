@@ -1,6 +1,18 @@
+.title {
+  margin: 20px 0;
+}
+
 .actorList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  /* align-items: center; */
   gap: 20px 10px;
   font-size: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+  .actorList {
+    gap: 20px 20px;
+  }
 }
