@@ -4,6 +4,7 @@ export default function ActorsCard({ cast }) {
   const { cast_id, profile_path, name, character, popularity } = cast;
   const defaultImg =
     "https://chadjohnsonlaw.com/wp-content/uploads/2019/03/photo-not-available-male.jpg";
+
   return (
     <li className={css.actorItem} key={cast_id}>
       <img

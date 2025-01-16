@@ -1,9 +1,10 @@
 .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  /* justify-content: space-between; */
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  padding: 20px 20px;
-  gap: 30px;
+  padding: 20px 0px;
+  gap: 70px;
 }
 
 .navigationItem {
@@ -21,7 +22,7 @@
 
 @media screen and (min-width: 768px) {
   .navigation {
-    padding: 0 30px;
+    gap: 450px;
   }
 
   .navigationItem {
@@ -30,6 +31,10 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .navigation {
+    gap: 1080px;
+  }
+
   .navigationItem {
     font-size: 24px;
   }

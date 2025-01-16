@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../themoviedb_api/themoviedb_api";
 import css from "./MovieReviews.module.css";
+import Loader from "../Loader/Loader";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
@@ -32,7 +33,7 @@ export default function MovieReviews() {
   return (
     <div className={css.reviews}>
       <h2>Movie reviews</h2>
-      {loading && <div>Loading reviews...</div>}
+      {loading && <Loader />}
       {error && <div>This is Error</div>}
       {reviews.length > 0 ? (
         <ul className={css.reviewsList}>
@@ -44,14 +45,16 @@ export default function MovieReviews() {
                   {author}
                 </p>
                 <p>
-                  <span className={css.titleName}>Review:</span> {content}
+                  <span className={css.titleName}>Review: </span> {content}
                 </p>
               </li>
             );
           })}
         </ul>
       ) : (
-        <h3>Sorry, there are no reviews for this movie yet</h3>
+        <h3 className={css.error}>
+          Sorry, there are no reviews for this movie yet
+        </h3>
       )}
     </div>
   );

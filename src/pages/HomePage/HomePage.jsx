@@ -4,6 +4,7 @@ import { getTopMovieDay } from "../../themoviedb_api/themoviedb_api";
 import { useEffect, useState } from "react";
 import LoadMore from "../../components/LoadMore/LoadMore";
 import css from "./HomePage.module.css";
+import Loader from "../../components/Loader/Loader";
 
 export default function HomePage() {
   const [listFilms, setListFilms] = useState([]);
@@ -48,10 +49,10 @@ export default function HomePage() {
   return (
     <div className={css.mainPart}>
       <h1 className={css.title}>Trendings today</h1>
-      {loading && <p>Loading...</p>}
+      {loading && <Loader />}
       {error && <p>Oops... It is error....</p>}
       {listFilms.length > 0 && <MovieList listFilms={listFilms} />}
-      {page > 1 && (
+      {/* {page > 1 && (
         <LoadMore onClick={changePage} change={-1} page={page}>
           Previos page
         </LoadMore>
@@ -62,7 +63,7 @@ export default function HomePage() {
           Next page
         </LoadMore>
       )}
-      {page !== 1 && <LoadMore onClick={resetPage}>Reset page</LoadMore>}
+      {page !== 1 && <LoadMore onClick={resetPage}>Reset page</LoadMore>} */}
     </div>
   );
 }

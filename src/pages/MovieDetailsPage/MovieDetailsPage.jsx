@@ -1,11 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams, useLocation, Link, Outlet } from "react-router-dom";
+import {
+  useParams,
+  useLocation,
+  Link,
+  NavLink,
+  Outlet,
+} from "react-router-dom";
+import clsx from "clsx";
 import { getMovieDetails } from "../../themoviedb_api/themoviedb_api";
-import CurrentFilm from "../../components/CurrentFilm/CurrentFilm";
 import { FiArrowLeft } from "react-icons/fi";
+
+import CurrentFilm from "../../components/CurrentFilm/CurrentFilm";
+import Loader from "../../components/Loader/Loader";
+
 import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
+  const getNavLinkClass = props => {
+    return clsx(css.link, props.isActive && css.active);
+  };
   const { movieId } = useParams();
   // console.log(movieId);
   // const endpoint = `/movie/${movieId}`;
@@ -46,20 +59,26 @@ export default function MovieDetailsPage() {
   return (
     <div className={css.movieDetails}>
       <div className={css.goBack}>
-        <FiArrowLeft className={css.icon} />
-        <Link to={backLinkHref.current}>Go back</Link>
+        <Link to={backLinkHref.current} className={css.link}>
+          <FiArrowLeft className={css.icon} />
+          Go back
+        </Link>
       </div>
 
-      {loading && <div>Loading</div>}
+      {loading && <Loader />}
       {error && <div>Error</div>}
       {currentFilm && <CurrentFilm currentFilm={currentFilm} />}
 
       <ul className={css.castReviews}>
         <li className={css.castReviewsItems}>
-          <Link to="cast">Cast</Link>
+          <NavLink to="cast" className={getNavLinkClass}>
+            Cast
+          </NavLink>
         </li>
         <li className={css.castReviewsItems}>
-          <Link to="reviews">Reviews</Link>
+          <NavLink to="reviews" className={getNavLinkClass}>
+            Reviews
+          </NavLink>
         </li>
       </ul>
       <Outlet />

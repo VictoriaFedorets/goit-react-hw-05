@@ -19,20 +19,22 @@ const MovieReviews = lazy(() =>
 
 export default function App() {
   return (
-    <div className={css.container}>
+    <>
       <Navigation />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<MovieCast />} />
-            <Route path="reviews" element={<MovieReviews />} />
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-          {/* <Route path="*" element={<Navigate to="/" />} /> */}
-        </Routes>
-      </Suspense>
-    </div>
+      <div className={css.container}>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/movies" element={<MoviesPage />} />
+            <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+              <Route path="cast" element={<MovieCast />} />
+              <Route path="reviews" element={<MovieReviews />} />
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+            {/* <Route path="*" element={<Navigate to="/" />} /> */}
+          </Routes>
+        </Suspense>
+      </div>
+    </>
   );
 }

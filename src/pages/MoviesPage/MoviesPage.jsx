@@ -7,6 +7,7 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import LoadMore from "../../components/LoadMore/LoadMore";
 
 import css from "./MoviesPage.module.css";
+import Loader from "../../components/Loader/Loader";
 
 export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -73,7 +74,7 @@ export default function MoviesPage() {
     <div className={css.searchPage}>
       <h3 className={css.title}>Movies search page</h3>
       <SearchForm onSubmit={handleSearchSubmit} />
-      {loading && <div>Loading...</div>}
+      {loading && <Loader />}
       {error && <div>{error}</div>}
       {searchMovies.length > 0 && <MovieList listFilms={searchMovies} />}
       <div>

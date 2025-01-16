@@ -3,6 +3,7 @@ import { useParams, useLocation } from "react-router-dom";
 import ActorsCard from "../ActorsCard/ActorsCard";
 import { getMovieCast } from "../../themoviedb_api/themoviedb_api";
 import css from "./MovieCast.module.css";
+import Loader from "../Loader/Loader";
 
 export default function MovieCast() {
   const [casts, setCasts] = useState([]);
@@ -44,7 +45,7 @@ export default function MovieCast() {
   return (
     <>
       <h2 className={css.title}>Movie casts:</h2>
-      {loading && <div>Loading...</div>}
+      {loading && <Loader />}
       {error && <div>Oops.. It is error..</div>}
 
       {casts.length > 0 ? (
