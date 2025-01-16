@@ -47,23 +47,26 @@ export default function HomePage() {
   }, [page, setSearchParams]);
 
   return (
-    <div className={css.mainPart}>
+    <>
       <h1 className={css.title}>Trendings today</h1>
       {loading && <Loader />}
       {error && <p>Oops... It is error....</p>}
       {listFilms.length > 0 && <MovieList listFilms={listFilms} />}
-      {/* {page > 1 && (
-        <LoadMore onClick={changePage} change={-1} page={page}>
-          Previos page
-        </LoadMore>
-      )}
-      <LoadMore page={page}>{page}</LoadMore>
-      {page < totalPages && (
-        <LoadMore onClick={changePage} change={1} page={page}>
-          Next page
-        </LoadMore>
-      )}
-      {page !== 1 && <LoadMore onClick={resetPage}>Reset page</LoadMore>} */}
-    </div>
+
+      <div className={css.btnWrap}>
+        {page > 1 && (
+          <LoadMore onClick={changePage} change={-1} page={page}>
+            Previos page
+          </LoadMore>
+        )}
+        <LoadMore page={page}>{page}</LoadMore>
+        {page < totalPages && (
+          <LoadMore onClick={changePage} change={1} page={page}>
+            Next page
+          </LoadMore>
+        )}
+        {page !== 1 && <LoadMore onClick={resetPage}>Reset page</LoadMore>}
+      </div>
+    </>
   );
 }

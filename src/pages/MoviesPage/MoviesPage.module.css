@@ -4,8 +4,13 @@
 
 .title {
   text-align: center;
-  color: rgb(247, 100, 55);
+  color: orangered;
   font-size: 30px;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and(min-width: 768px) {

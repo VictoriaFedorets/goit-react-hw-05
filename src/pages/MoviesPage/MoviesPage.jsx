@@ -77,13 +77,15 @@ export default function MoviesPage() {
       {loading && <Loader />}
       {error && <div>{error}</div>}
       {searchMovies.length > 0 && <MovieList listFilms={searchMovies} />}
-      <div>
+
+      <div className={css.btnWrap}>
         {" "}
         {page > 1 && (
           <LoadMore onClick={() => handlePageChange(-1)}>
             Previous Page
           </LoadMore>
         )}
+        <LoadMore page={page}>{page}</LoadMore>
         {page < totalPages && (
           <LoadMore onClick={() => handlePageChange(1)}>Next Page</LoadMore>
         )}

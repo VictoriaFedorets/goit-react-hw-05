@@ -1,14 +1,12 @@
-.mainPart {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
+.title {
   margin-top: 20px;
+  text-align: center;
+  color: orangered;
 }
 
-.title {
-  text-align: center;
-  color: rgb(247, 100, 55);
+.btnWrap {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -16,9 +14,3 @@
     font-size: 37px;
   }
 }
-
-/* @media screen and (min-width: 1440px) {
-  .title {
-    font-size: 40px;
-  }
-} */
