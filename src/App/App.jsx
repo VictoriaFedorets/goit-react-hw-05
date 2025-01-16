@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 // import { Navigate } from "react-router-dom";
 
+import Loader from "../components/Loader/Loader";
 import Navigation from "../components/Navigation/Navigation";
 import css from "./App.module.css";
 
@@ -20,7 +21,7 @@ export default function App() {
   return (
     <div className={css.container}>
       <Navigation />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
