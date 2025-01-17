@@ -1,3 +1,4 @@
+import { FaStar } from "react-icons/fa";
 import css from "./CurrentFilm.module.css";
 
 export default function CurrentFilm({ currentFilm }) {
@@ -26,6 +27,7 @@ export default function CurrentFilm({ currentFilm }) {
         </p>
         <p>
           <span>User Score: </span> {currentFilm.vote_average}
+          <FaStar className={css.iconStar} />
         </p>
         <p>
           <span>Genres: </span>{" "}
