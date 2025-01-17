@@ -79,17 +79,16 @@ export default function MoviesPage() {
       {searchMovies.length > 0 && <MovieList listFilms={searchMovies} />}
 
       <div className={css.btnWrap}>
-        {" "}
-        {page > 1 && (
+        {page > 1 && searchMovies.length > 0 && (
           <LoadMore onClick={() => handlePageChange(-1)}>
             Previous Page
           </LoadMore>
         )}
-        <LoadMore page={page}>{page}</LoadMore>
-        {page < totalPages && (
+        {searchMovies.length > 0 && <LoadMore page={page}>{page}</LoadMore>}
+        {page < totalPages && searchMovies.length > 0 && (
           <LoadMore onClick={() => handlePageChange(1)}>Next Page</LoadMore>
         )}
-        {page !== 1 && (
+        {page !== 1 && searchMovies.length > 0 && (
           <LoadMore onClick={handleResetPage}>Reset Page</LoadMore>
         )}
       </div>

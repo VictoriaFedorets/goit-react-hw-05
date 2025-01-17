@@ -59,7 +59,7 @@ export default function HomePage() {
             Previos page
           </LoadMore>
         )}
-        <LoadMore page={page}>{page}</LoadMore>
+        {listFilms.length > 0 && <LoadMore page={page}>{page}</LoadMore>}
         {page < totalPages && (
           <LoadMore onClick={changePage} change={1} page={page}>
             Next page
