@@ -2,9 +2,9 @@ import { Link, useLocation } from "react-router-dom";
 import css from "./MovieList.module.css";
 
 export default function MovieList({ listFilms }) {
-  const defaultImg =
-    "<https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg>";
   const location = useLocation();
+  const defaultImg =
+    "https://th.bing.com/th/id/OIP.V2MX8j99r1WmRDZ0UkRBegHaJe?rs=1&pid=ImgDetMain";
 
   if (!Array.isArray(listFilms)) {
     return <p>Error: Expected listFilms to be an array.</p>;
