@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieList from "../../components/MovieList/MovieList";
 import { getTopMovieDay } from "../../themoviedb_api/themoviedb_api";
-import { useEffect, useState } from "react";
 import LoadMore from "../../components/LoadMore/LoadMore";
-import css from "./HomePage.module.css";
 import Loader from "../../components/Loader/Loader";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [listFilms, setListFilms] = useState([]);
@@ -38,7 +38,7 @@ export default function HomePage() {
         setTotalPages(data.total_pages); // Update total pages if applicable
       } catch (error) {
         setError(true);
-        console.log(error);
+        // console.log(error);
       } finally {
         setLoading(false);
       }

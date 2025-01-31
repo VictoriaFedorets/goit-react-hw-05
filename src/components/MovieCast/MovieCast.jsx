@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ActorsCard from "../ActorsCard/ActorsCard";
 import { getMovieCast } from "../../themoviedb_api/themoviedb_api";
 import css from "./MovieCast.module.css";
@@ -11,11 +11,7 @@ export default function MovieCast() {
   const [error, setError] = useState(null);
 
   const { movieId } = useParams();
-  console.log(movieId);
-  // const endpoint = `/movie/${movieId}/credits`;
-
-  // const location = useLocation();
-  // console.log("cast location", location);
+  // console.log(movieId);
 
   const getFilmCasts = async () => {
     setLoading(true);
@@ -25,21 +21,18 @@ export default function MovieCast() {
       const response = await getMovieCast(movieId);
 
       setCasts(response.cast);
-      console.log(response.cast);
+      // console.log(response.cast);
     } catch (error) {
       setError(
         "It was not possible to obtain information about the actors. Please try again later."
       );
-      console.log(error);
+      // console.log(error);
     } finally {
       setLoading(false);
     }
   };
   useEffect(() => {
-    // console.log("Current location is", location);
-    // console.log(movieId);
     getFilmCasts();
-    console.log(casts);
   }, [movieId]);
 
   return (

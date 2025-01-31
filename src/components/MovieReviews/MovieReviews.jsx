@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../themoviedb_api/themoviedb_api";
-import css from "./MovieReviews.module.css";
 import Loader from "../Loader/Loader";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
@@ -21,7 +21,7 @@ export default function MovieReviews() {
         setReviews(response.results);
       } catch (error) {
         setError(true);
-        console.log(error);
+        // console.log(error);
       } finally {
         setLoading(false);
       }

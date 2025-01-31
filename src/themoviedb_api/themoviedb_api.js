@@ -15,7 +15,7 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${API_TOKEN}`;
 export async function getTopMovieDay() {
   const endPoint = "/trending/movie/day";
   const response = await axios.get(endPoint);
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 }
 

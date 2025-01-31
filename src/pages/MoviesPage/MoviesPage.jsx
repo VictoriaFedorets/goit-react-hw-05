@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import MovieCast from "../../components/MovieCast/MovieCast";
 import { getSearchMovies } from "../../themoviedb_api/themoviedb_api";
 import MovieList from "../../components/MovieList/MovieList";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import LoadMore from "../../components/LoadMore/LoadMore";
-
-import css from "./MoviesPage.module.css";
 import Loader from "../../components/Loader/Loader";
+import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();

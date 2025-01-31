@@ -9,10 +9,8 @@ import {
 import clsx from "clsx";
 import { getMovieDetails } from "../../themoviedb_api/themoviedb_api";
 import { FiArrowLeft } from "react-icons/fi";
-
 import CurrentFilm from "../../components/CurrentFilm/CurrentFilm";
 import Loader from "../../components/Loader/Loader";
-
 import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {

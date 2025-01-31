@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import css from "./NotFoundPage.module.css";
 import { FaHome } from "react-icons/fa";
+import css from "./NotFoundPage.module.css";
 
 export default function NotFoundPage() {
   return (
