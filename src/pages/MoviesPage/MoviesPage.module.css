@@ -15,6 +15,12 @@
   gap: 10px;
 }
 
+.error {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
 @media screen and(min-width: 768px) {
   .title {
     font-size: 37px;

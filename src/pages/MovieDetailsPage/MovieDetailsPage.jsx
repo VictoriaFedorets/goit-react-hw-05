@@ -79,6 +79,7 @@ export default function MovieDetailsPage() {
           </NavLink>
         </li>
       </ul>
+
       <Outlet />
     </div>
   );

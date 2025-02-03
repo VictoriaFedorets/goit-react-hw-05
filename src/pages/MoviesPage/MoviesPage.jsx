@@ -9,26 +9,20 @@ import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
   const [searchMovies, setSearchMovies] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const [page, setPage] = useState(1); // Состояние для текущей страницы
+  const [totalPages, setTotalPages] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [totalPages, setTotalPages] = useState(1); // Состояние для общего количества страниц
 
-  const query = searchParams.get("query") ?? "";
-
-  // const pageOnParams = Number(searchParams.get("page"));
-  // const page = pageOnParams ? pageOnParams : 1;
-  const page = Number(searchParams.get("page")) || 1;
+  const query = searchParams.get("query") || "";
+  const page = parseInt(searchParams.get("page")) || 1;
 
   useEffect(() => {
-    if (!query) {
-      return;
-    }
+    if (!query) return;
 
     const fetchMovies = async () => {
       setLoading(true);
-      setError(null);
+      setError(false);
 
       try {
         const response = await getSearchMovies(query, page);
@@ -45,26 +39,23 @@ export default function MoviesPage() {
         setLoading(false);
       }
     };
+
     fetchMovies();
   }, [query, page]);
 
-  const updateSearchParams = newParams => {
-    setSearchParams({
-      query: newParams.query.toLowerCase(),
-      page: newParams.page,
-    });
+  const updateSearchParams = (newQuery, newPage) => {
+    const params = {};
+    if (newQuery) params.query = newQuery.toLowerCase();
+    if (newPage) params.page = newPage;
+    setSearchParams(params);
   };
 
   const handlePageChange = change => {
-    updateSearchParams({ query, page: page + change });
-  };
-
-  const handleResetPage = () => {
-    updateSearchParams({ query, page: 1 });
+    updateSearchParams(query, page + change);
   };
 
   const handleSearchSubmit = newQuery => {
-    updateSearchParams({ query: newQuery, page: 1 });
+    updateSearchParams(newQuery, 1);
   };
 
   return (
@@ -72,7 +63,8 @@ export default function MoviesPage() {
       <h3 className={css.title}>Movies search page</h3>
       <SearchForm onSubmit={handleSearchSubmit} />
       {loading && <Loader />}
-      {error && <div>{error}</div>}
+      {error && <div className={css.error}>{error}</div>}
+
       {searchMovies.length > 0 && <MovieList listFilms={searchMovies} />}
 
       <div className={css.btnWrap}>
@@ -81,12 +73,11 @@ export default function MoviesPage() {
             Previous Page
           </LoadMore>
         )}
-        {searchMovies.length > 0 && <LoadMore page={page}>{page}</LoadMore>}
+        {page > 1 && page < totalPages && searchMovies.length > 0 && (
+          <LoadMore page={page}>{page}</LoadMore>
+        )}
         {page < totalPages && searchMovies.length > 0 && (
           <LoadMore onClick={() => handlePageChange(1)}>Next Page</LoadMore>
-        )}
-        {page !== 1 && searchMovies.length > 0 && (
-          <LoadMore onClick={handleResetPage}>Reset Page</LoadMore>
         )}
       </div>
     </div>

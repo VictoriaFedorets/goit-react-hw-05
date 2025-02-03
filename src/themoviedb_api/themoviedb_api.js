@@ -19,25 +19,25 @@ export async function getTopMovieDay(page) {
     page,
   };
   const response = await axios.get(endPoint, { params });
-  console.log(response.data);
+  // console.log(response.data);
   return response.data;
 }
 
-export async function getSearchMovies(query, page) {
+export async function getSearchMovies(query, page, perPage) {
   const endPoint = "/search/movie";
   const params = {
     query,
     page,
+    perPage,
   };
 
   const response = await axios.get(endPoint, { params });
-
+  // console.log(response.data);
   return response.data;
 }
 
 export async function getMovieDetails(movie_id) {
   const endPoint = `/movie/${movie_id}`;
-
   const response = await axios.get(endPoint);
 
   return response.data;
@@ -45,7 +45,6 @@ export async function getMovieDetails(movie_id) {
 
 export async function getMovieCast(movie_id) {
   const endPoint = `/movie/${movie_id}/credits`;
-
   const response = await axios.get(endPoint);
 
   return response.data;
@@ -53,7 +52,6 @@ export async function getMovieCast(movie_id) {
 
 export async function getMovieReviews(movie_id) {
   const endPoint = `/movie/${movie_id}/reviews`;
-
   const response = await axios.get(endPoint);
 
   return response.data;
