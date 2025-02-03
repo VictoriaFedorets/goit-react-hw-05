@@ -12,17 +12,22 @@ const API_TOKEN =
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.headers.common["Authorization"] = `Bearer ${API_TOKEN}`;
 
-export async function getTopMovieDay() {
+export async function getTopMovieDay(page) {
   const endPoint = "/trending/movie/day";
-  const response = await axios.get(endPoint);
-  // console.log(response.data);
+
+  const params = {
+    page,
+  };
+  const response = await axios.get(endPoint, { params });
+  console.log(response.data);
   return response.data;
 }
 
-export async function getSearchMovies(query) {
+export async function getSearchMovies(query, page) {
   const endPoint = "/search/movie";
   const params = {
-    query: query,
+    query,
+    page,
   };
 
   const response = await axios.get(endPoint, { params });

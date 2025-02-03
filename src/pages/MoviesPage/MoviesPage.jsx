@@ -8,14 +8,13 @@ import Loader from "../../components/Loader/Loader";
 import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [searchMovies, setSearchMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   // const [page, setPage] = useState(1); // Состояние для текущей страницы
+  const [searchParams, setSearchParams] = useSearchParams();
   const [totalPages, setTotalPages] = useState(1); // Состояние для общего количества страниц
 
-  // const endpoint = "search/movie";
   const query = searchParams.get("query") ?? "";
 
   // const pageOnParams = Number(searchParams.get("page"));
